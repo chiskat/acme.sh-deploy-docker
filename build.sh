@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
 ACMEVERSION=$(curl -fsSL 'https://hub.docker.com/v2/repositories/neilpang/acme.sh/tags/?page_size=10' | grep -oE '"name":"[0-9]+\.[0-9]+\.[0-9]+"' | cut -d'"' -f4 | sort -V | tail -n1)
 
 IMAGE_VERSION="acme_$ACMEVERSION"
